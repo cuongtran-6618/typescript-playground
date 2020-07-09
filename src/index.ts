@@ -17,7 +17,6 @@ let user1: string[] = [
 	"012339203",
 ];
 
-
 enum Color {
 	Red = 100,
 	Green = 122,
@@ -116,6 +115,27 @@ const NewCharacter = new Character(
 	"luke.skywalker@starwar.com",
 	"012339203"
 );
+
+class shortCharacter {
+	constructor(
+		private id: string,
+		private name?: string,
+		private email?: string,
+		private phone?: string
+	) {}
+
+	getName() {
+		return this.name;
+	}
+
+	getEmail() {
+		return this.email;
+	}
+
+	getPhone() {
+		return this.phone;
+	}
+}
 
 console.log(NewCharacter.getName());
 

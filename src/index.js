@@ -88,6 +88,24 @@ var Jedi = /** @class */ (function (_super) {
     return Jedi;
 }(Character));
 var NewCharacter = new Character("firstUser", "Luke Skywalker", "luke.skywalker@starwar.com", "012339203");
+var shortCharacter = /** @class */ (function () {
+    function shortCharacter(id, name, email, phone) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+    shortCharacter.prototype.getName = function () {
+        return this.name;
+    };
+    shortCharacter.prototype.getEmail = function () {
+        return this.email;
+    };
+    shortCharacter.prototype.getPhone = function () {
+        return this.phone;
+    };
+    return shortCharacter;
+}());
 console.log(NewCharacter.getName());
 var newJedi = new Jedi("uuid-2", "Yoda", "yo.da@starwar.com", "012222", true);
 console.log(newJedi.getEmail());
