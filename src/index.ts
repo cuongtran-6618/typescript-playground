@@ -17,18 +17,6 @@ let user1: string[] = [
 	"012339203",
 ];
 
-enum Color {
-	Red = 100,
-	Green = 122,
-	Blue = 4,
-}
-
-let c: Color = Color.Green;
-let c1: string = Color[4];
-console.log(c);
-// get key(label) of value
-console.log(c1);
-
 const getUserInfo = (user: Array<string>): void => {
 	user.map((attributeOfUser: string) => {
 		console.log(attributeOfUser);
@@ -40,32 +28,42 @@ function getUserFullName(user: Array<string>): string {
 }
 console.log(getUserFullName(user));
 
-//---------------------------------------------------------------------------------------------------
+//---------------------------------Enumn---------------------------------
+enum Color {
+	Red = 100,
+	Green = 122,
+	Blue = 4,
+}
 
-// create my own type
+let c: Color = Color.Green;
+let c1: string = Color[4];
+console.log(c);
+// get key(label) of value
+console.log(c1);
+// ---------------------------------create my own type---------------------------------
 interface Todo {
-	id: String;
-	decription: String;
-	status: Boolean;
+	id: string;
+	description: string;
+	status: boolean;
 }
 
 const firstTodo = {
 	id: "uuid-first-todo",
-	decription: "This is the first todo ticket",
+	description: "This is the first todo ticket",
 	status: false,
 };
 
 function printTodo(todo: Todo): void {
 	console.log(
-		`firstTodo with id: ${todo.id}, and description: ${todo.decription}.`
+		`firstTodo with id: ${todo.id}, and description: ${todo.description}.`
 	);
 }
 
 printTodo(firstTodo);
 
-//--------------------------------------------OOP-------------------------------------------------------
+//--------------------------------------------OOP------------------------------------------
 class Character {
-	private id: string;
+	readonly id: string; // readonly will prevent program change id later after it was initial
 	private name: string;
 	private phone: string;
 	private email: string;
@@ -118,7 +116,7 @@ const NewCharacter = new Character(
 
 class shortCharacter {
 	constructor(
-		private id: string,
+		readonly id: string,
 		private name?: string,
 		private email?: string,
 		private phone?: string
