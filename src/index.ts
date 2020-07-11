@@ -45,6 +45,7 @@ interface Todo {
 	id: string;
 	description: string;
 	status: boolean;
+	[propName: string]: any; // Todo can has other property with type as any
 }
 
 const firstTodo = {
@@ -62,6 +63,8 @@ function printTodo(todo: Todo): void {
 printTodo(firstTodo);
 
 //--------------------------------------------OOP------------------------------------------
+
+// class inheritent
 class Character {
 	readonly id: string; // readonly will prevent program change id later after it was initial
 	private name: string;
@@ -114,6 +117,17 @@ const NewCharacter = new Character(
 	"012339203"
 );
 
+const newJedi: Character = new Jedi(
+	"uuid-2",
+	"Yoda",
+	"yo.da@starwar.com",
+	"012222",
+	true
+);
+console.log(NewCharacter.getName());
+console.log(newJedi.getEmail());
+
+// another way to declare class (shorter constructor)
 class shortCharacter {
 	constructor(
 		readonly id: string,
@@ -135,14 +149,42 @@ class shortCharacter {
 	}
 }
 
-console.log(NewCharacter.getName());
+class BigBangCharacter extends shortCharacter {
+	private season?: number | string;
+	constructor(
+		id: string,
+		name?: string,
+		email?: string,
+		phone?: string,
+		season?: number | string
+	) {
+		super(id, name, email, phone);
+		this.season = season;
+	}
 
-const newJedi: Character = new Jedi(
-	"uuid-2",
-	"Yoda",
-	"yo.da@starwar.com",
-	"012222",
-	true
+	getSeason() {
+		return this.season;
+	}
+}
+
+let Seldon = new BigBangCharacter(
+	"1",
+	"Sheldon Cooper",
+	"sheldon.cooper@bigbang.com",
+	"12443453423",
+	1
 );
 
-console.log(newJedi.getEmail());
+console.log(Seldon.getSeason());
+
+//--------------------------------------
+
+interface StringArray {
+	[index: number]: string;
+}
+
+let myArray: StringArray;
+myArray = ["Bob", "Fred"];
+
+let myStr: string = myArray[0];
+myStr;
