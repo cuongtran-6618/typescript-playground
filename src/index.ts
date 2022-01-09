@@ -55,7 +55,15 @@ printTodo(firstTodo);
 //--------------------------------------------OOP------------------------------------------
 
 // class inheritent
-class Character {
+interface CharacterInterface<T extends object> {
+  getName(): string;
+  getEmail(): string;
+  getPhone(): string;
+  getFullInformation(): string;
+  getSpecialPower(): T;
+}
+
+class Character implements CharacterInterface<{ power: string }> {
   readonly id: string; // readonly will prevent program change id later after it was initial
   private name: string;
   private phone: string;
@@ -66,6 +74,15 @@ class Character {
     this.name = name;
     this.email = email;
     this.phone = phone;
+  }
+  getSpecialPower(): {
+    power: string;
+  } {
+    return { power: 'rich like batman or ironman' };
+  }
+
+  getFullInformation(): string {
+    return `Character ${this.name} has an email as ${this.email} and telephone number is ${this.phone}`;
   }
 
   getName() {
@@ -99,6 +116,8 @@ const NewCharacter = new Character('firstUser', 'Luke Skywalker', 'luke.skywalke
 const newJedi: Character = new Jedi('uuid-2', 'Yoda', 'yo.da@starwar.com', '012222', true);
 console.log(NewCharacter.getName());
 console.log(newJedi.getEmail());
+console.log(newJedi.getFullInformation());
+console.log(newJedi.getSpecialPower());
 
 // another way to declare class (shorter constructor)
 class shortCharacter {
@@ -119,6 +138,7 @@ class shortCharacter {
 
 class BigBangCharacter extends shortCharacter {
   private season?: number | string;
+
   constructor(id: string, name?: string, email?: string, phone?: string, season?: number | string) {
     super(id, name, email, phone);
     this.season = season;
@@ -130,6 +150,7 @@ class BigBangCharacter extends shortCharacter {
 }
 
 let Seldon = new BigBangCharacter('1', 'Sheldon Cooper', 'sheldon.cooper@bigbang.com', '12443453423', 1);
+Seldon.getSeason();
 
 //--------------------------------------
 
