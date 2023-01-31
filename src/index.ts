@@ -1,5 +1,3 @@
-console.log('test');
-
 // Testing the language features
 const fruits = {
   apple: ['short', ' long yellow', 'chilla'],
