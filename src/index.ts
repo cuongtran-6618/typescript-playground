@@ -1,23 +1,9 @@
-// Testing the language features
-const fruits = {
-  apple: ['short', ' long yellow', 'chilla'],
-};
+import getUserInfo from './array';
+import printTodo from './printTodo';
 
 let user: Array<string> = ['uuid-1', 'Luke Skywalker', 'luke.skywalker@starwar.com', '012339203'];
 
-let user1: string[] = ['uuid-1', 'Luke Skywalker', 'luke.skywalker@starwar.com', '012339203'];
-
-const getUserInfo = (user: Array<string>): void => {
-  user.map((attributeOfUser: string) => {
-    console.log(attributeOfUser);
-  });
-};
-
-function getUserFullName(user: Array<string>): string {
-  return user[1];
-}
-console.log(getUserFullName(user));
-
+getUserInfo(user);
 //---------------------------------Enumn---------------------------------
 enum Color {
   Red = 100,
@@ -31,22 +17,12 @@ console.log(c);
 // get key(label) of value
 console.log(c1);
 // ---------------------------------create my own type---------------------------------
-interface Todo {
-  id: string;
-  description: string;
-  status: boolean;
-  [propName: string]: any; // Todo can has other property with type as any
-}
 
 const firstTodo = {
   id: 'uuid-first-todo',
   description: 'This is the first todo ticket',
   status: false,
 };
-
-function printTodo(todo: Todo): void {
-  console.log(`firstTodo with id: ${todo.id}, and description: ${todo.description}.`);
-}
 
 printTodo(firstTodo);
 
