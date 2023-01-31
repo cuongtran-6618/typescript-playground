@@ -7,8 +7,7 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "prod": "webpack --mode production",
-    "dev": "webpack-dev-server --mode development",
-    "bundleup": "webpack-cli",
+    "build": "webpack --mode development",
     "start": "webpack serve --mode development --open"
   },
   "repository": {
