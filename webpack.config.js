@@ -7,7 +7,7 @@ module.exports = {
   devServer: {
     static: './dist',
     compress: true,
-    port: 8181,
+    port: 8181, // set the custom server port to avoid conflict
   },
   output: {
     filename: 'bundle.js',
